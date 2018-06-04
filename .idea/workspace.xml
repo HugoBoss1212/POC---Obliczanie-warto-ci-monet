@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68d1fe88-c089-433b-b82f-52d19493a540" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scr/images/1,41zł - osobno 4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scr/images/2,31zł - razem 6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scr/images/2,81zł - osobno 6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scr/images/4,86zł - osobno 8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scr/images/4,86zł - razem 8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scr/images/5,8zł - osobno 10.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scr/reference.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scr/images/1,41zł - osobno.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scr/images/2,31zł - razem.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scr/images/2,81zł - osobno.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scr/images/4,86zł - osobno.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scr/images/4,86zł - razem.jpg" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scr/image_proc.py" afterPath="$PROJECT_DIR$/scr/image_proc.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scr/main.py" afterPath="$PROJECT_DIR$/scr/main.py" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,7 +26,7 @@
         <entry file="file://$PROJECT_DIR$/scr/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -35,13 +34,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="image_proc.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="image_proc.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scr/image_proc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+            <state relative-caret-position="319">
+              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reference.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scr/reference.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="918">
+              <caret line="54" column="65" lean-forward="false" selection-start-line="54" selection-start-column="65" selection-end-line="54" selection-end-column="65" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,6 +82,7 @@
         <option value="$PROJECT_DIR$/../Kacper Lechowicz/scene-segmentation.ipynb" />
         <option value="$PROJECT_DIR$/scr/main.py" />
         <option value="$PROJECT_DIR$/scr/image_proc.py" />
+        <option value="$PROJECT_DIR$/scr/reference.py" />
       </list>
     </option>
   </component>
@@ -337,8 +349,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -361,7 +374,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -545,7 +557,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527196362157</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="working coin recognision">
+      <created>1528137414473</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1528137414473</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -588,13 +607,44 @@
     <MESSAGE value="funkcja calc:&#10;binaryzacja i segmentacja obrazów" />
     <MESSAGE value="dodanie plikow" />
     <MESSAGE value="komit na koniec dnia" />
-    <option name="LAST_COMMIT_MESSAGE" value="komit na koniec dnia" />
+    <MESSAGE value="working coin recognision" />
+    <option name="LAST_COMMIT_MESSAGE" value="working coin recognision" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/scr/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scr/image_proc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="53" column="67" lean-forward="false" selection-start-line="53" selection-start-column="67" selection-end-line="53" selection-end-column="67" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scr/reference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scr/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -664,7 +714,7 @@
     <entry file="file://$PROJECT_DIR$/scr/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
@@ -673,10 +723,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scr/image_proc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="319">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scr/reference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="54" column="65" lean-forward="false" selection-start-line="54" selection-start-column="65" selection-end-line="54" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
