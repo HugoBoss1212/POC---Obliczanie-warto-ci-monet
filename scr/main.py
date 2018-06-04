@@ -1,14 +1,13 @@
-from skimage import io
-from skimage.color import rgb2gray
 import image_proc
 import glob
+import cv2
 
 
 def main_():
     for file in glob.glob("images/*.jpg"):
         count = int(file[len(file)-6:len(file)-4])
-        image = io.imread(file)
-        image = rgb2gray(image)
+        print(file)
+        image = cv2.imread(file)
         image_proc.calc(image, count)
 
 
