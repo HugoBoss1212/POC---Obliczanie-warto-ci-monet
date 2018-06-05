@@ -39,18 +39,17 @@ def calc(image, real_num):
         ((x, y), r) = cv2.minEnclosingCircle(c)
         cv2.circle(image, (int(x), int(y)), int(r), (0, 255, 0), 2)
         pole = int(math.pi*r*r)
-        print("pole = " + str(pole) + "\t nr: " + str(label))
         num = label
-        x_min = int(x - 10)
-        x_max = int(x + 10)
-        y_min = int(y - 10)
-        y_max = int(y + 10)
+        x_min = int(x - 15)
+        x_max = int(x + 15)
+        y_min = int(y - 15)
+        y_max = int(y + 15)
 
         value += reference.check_value(pole, color_test[y_min:y_max, x_min:x_max])
 
     if num == real_num: print("Wykryto wszystkie elementy!")
-    else: print("pominieto niektóre elementy!")
-    print("Kwota na zdjęciu: " + str(value))
+    else: print("pominieto " + str(real_num - num) + " elementy!")
+    print("Kwota na zdjęciu: " + str(value/100) + "zł")
 
     cv2.imshow("Output", image)
     cv2.waitKey(0)

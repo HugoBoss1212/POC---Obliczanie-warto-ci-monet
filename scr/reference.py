@@ -31,11 +31,15 @@ def check_value(pole, image):
         test.append(int(math.fabs(pole - i)))
     mn, idx = min((test[i], i) for i in range(len(test)))
     if idx == 1 or idx == 4:
-        if dominant_color(image) < 100: return 2
-        else: return 20
+        if dominant_color(image) < 130:
+            return 2
+        else:
+            return 20
     if idx == 6 or idx == 8:
-        if dominant_color(image) < 100: return 500
-        else: return 100
+        if dominant_color(image) < 130:
+            return 500
+        else:
+            return 100
 
     if idx == 0: return 1
     if idx == 2: return 5
