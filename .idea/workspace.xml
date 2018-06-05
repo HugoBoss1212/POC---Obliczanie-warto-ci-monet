@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="68d1fe88-c089-433b-b82f-52d19493a540" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scr/image_proc.py" afterPath="$PROJECT_DIR$/scr/image_proc.py" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,7 +30,7 @@
         <entry file="file://$PROJECT_DIR$/scr/image_proc.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="268">
-              <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -571,7 +570,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528156913547</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="pozbywanie sie błędów nakładania &#10;wewnętrznych kół monet">
+      <created>1528195126945</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1528195126945</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -617,7 +623,8 @@
     <MESSAGE value="working coin recognision" />
     <MESSAGE value="dodanie sprawdzania kolorow&#10;wykrywa poprawnie tylko monety do góry reszką" />
     <MESSAGE value="czasami myli jedynki z piątką" />
-    <option name="LAST_COMMIT_MESSAGE" value="czasami myli jedynki z piątką" />
+    <MESSAGE value="pozbywanie sie błędów nakładania &#10;wewnętrznych kół monet" />
+    <option name="LAST_COMMIT_MESSAGE" value="pozbywanie sie błędów nakładania &#10;wewnętrznych kół monet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -773,7 +780,7 @@
     <entry file="file://$PROJECT_DIR$/scr/image_proc.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
-          <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
