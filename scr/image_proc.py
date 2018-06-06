@@ -31,12 +31,17 @@ def calc(image, real_num, real_value):
     (a, b, radius) = (0, 0, 0)
     for label in np.unique(labels):
         if label == 0: continue
+        points = []
 
         # blair_bliss.append(compute_bb())
-        # feret.append(compute_f())
 
         mask = np.zeros(gray.shape, dtype="uint8")
         mask[labels == label] = 255
+        for i in range(mask.shape[0]):
+            for j in range(mask.shape[1]):
+                if mask[i][j] == 255:
+                    points.append((i, j))
+
         cnts = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)[-2]
         c = max(cnts, key=cv2.contourArea)
         ((x, y), r) = cv2.minEnclosingCircle(c)
@@ -44,6 +49,7 @@ def calc(image, real_num, real_value):
         if math.sqrt(math.pow(int(x) - int(a), 2) + math.pow(int(y) - int(b), 2)) < int(r): continue
         center_off_mass.append((int(y), int(x)))
         haralick.append(compute_h(r, len(c)))
+        feret.append(compute_f(points))
         (a, b, radius) = (x, y, r)
 
         cv2.circle(image, (int(x), int(y)), int(r), (0, 255, 0), 2)
@@ -58,7 +64,9 @@ def calc(image, real_num, real_value):
         value += reference.check_value(pole, color_test[y_min:y_max, x_min:x_max])
 
     print("Środki ciężkości: " + str(center_off_mass))
-    print("Współczynniki Fereta: " + str(feret))
+    print("Współczynniki Fereta: [ ", end="")
+    for i in feret: print("{:.2}, ".format(i), end="")
+    print("]")
     print("Współczynniki Blaira-Blissa: " + str(blair_bliss))
     print("Współczynniki Haralicka: [ ", end="")
     for i in haralick: print("{:.2}, ".format(i), end="")
@@ -74,8 +82,8 @@ def calc(image, real_num, real_value):
     print("### -------------------------------------------------- ###")
     print()
 
-    # cv2.imshow("Output", image)
-    # cv2.waitKey(0)
+    cv2.imshow("Output", image)
+    cv2.waitKey(0)
 
 
 def check_alg(real_value, value, real_num, num):
@@ -93,8 +101,14 @@ def compute_bb(points):
     return s/(math.sqrt(2*math.pi*r))
 
 
-def compute_f():
-    pass
+def compute_f(points):
+    px = [x for (y, x) in points]
+    py = [y for (y, x) in points]
+
+    fx = max(px) - min(px)
+    fy = max(py) - min(py)
+
+    return float(fy)/float(fx)
 
 
 def compute_h(dis, length_):
