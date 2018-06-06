@@ -4,10 +4,10 @@ import cv2
 from scipy.stats import itemfreq
 
 coin_1 = [552, 530]
-coin_2 = [770, 747] ## myli z 20
+coin_2 = [770, 747]
 coin_5 = [938, 889]
 coin_10 = [639, 634]
-coin_20 = [799, 719] ## myli z 2
+coin_20 = [799, 719]
 coin_50 = [1414, 1327]
 coin_100 = [2136, 1965] ## myli z 500
 coin_200 = [1655, 1645]
@@ -31,12 +31,12 @@ def check_value(pole, image):
         test.append(int(math.fabs(pole - i)))
     mn, idx = min((test[i], i) for i in range(len(test)))
     if idx == 1 or idx == 4:
-        if dominant_color(image) < 130:
+        if dominant_color(image)[0] < 130:
             return 2
         else:
             return 20
     if idx == 6 or idx == 8:
-        if dominant_color(image) < 130:
+        if dominant_color(image)[0] < 130:
             return 500
         else:
             return 100
@@ -57,4 +57,4 @@ def dominant_color(image):
     _, labels, centroids = cv2.kmeans(pixels, n_colors, None, criteria, 10, flags)
     palette = np.uint8(centroids)
     dominant_color_ = palette[np.argmax(itemfreq(labels)[:, -1])]
-    return dominant_color_[0]
+    return dominant_color_

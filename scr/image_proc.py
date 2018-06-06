@@ -8,7 +8,7 @@ import math
 import reference
 
 
-def calc(image, real_num):
+def calc(image, real_num, real_value):
     num = 0
     value = 0
     color_test = np.copy(image)
@@ -48,7 +48,9 @@ def calc(image, real_num):
         value += reference.check_value(pole, color_test[y_min:y_max, x_min:x_max])
 
     if num == real_num: print("Wykryto wszystkie elementy!")
-    else: print("pominieto " + str(real_num - num) + " elementy!")
+    else: print("Pominieto " + str(real_num - num) + " elementy!")
+    if value/100 == real_value: print("Pomyślnie odczytano wartość monet!")
+    else: print("Wykryto złą wartość! pomyłka to: " + str(real_value - value/100))
     print("Kwota na zdjęciu: " + str(value/100) + "zł")
 
     cv2.imshow("Output", image)
