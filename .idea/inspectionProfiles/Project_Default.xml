@@ -13,6 +13,7 @@
         <list>
           <option value="image_proc" />
           <option value="reference" />
+          <option value="scr.image_proc.computing" />
         </list>
       </option>
     </inspection_tool>

@@ -6,7 +6,7 @@ from scipy import ndimage
 import numpy as np
 import math
 import reference
-from scipy.spatial import distance
+from computing import compute_h, compute_bb, compute_f
 
 
 def calc(image, real_num, real_value):
@@ -33,8 +33,6 @@ def calc(image, real_num, real_value):
         if label == 0: continue
         points = []
 
-        # blair_bliss.append(compute_bb())
-
         mask = np.zeros(gray.shape, dtype="uint8")
         mask[labels == label] = 255
         for i in range(mask.shape[0]):
@@ -50,6 +48,7 @@ def calc(image, real_num, real_value):
         center_off_mass.append((int(y), int(x)))
         haralick.append(compute_h(r, len(c)))
         feret.append(compute_f(points))
+        blair_bliss.append(compute_bb(points))
         (a, b, radius) = (x, y, r)
 
         cv2.circle(image, (int(x), int(y)), int(r), (0, 255, 0), 2)
@@ -67,7 +66,9 @@ def calc(image, real_num, real_value):
     print("Współczynniki Fereta: [ ", end="")
     for i in feret: print("{:.2}, ".format(i), end="")
     print("]")
-    print("Współczynniki Blaira-Blissa: " + str(blair_bliss))
+    print("Współczynniki Blaira-Blissa: [ ", end="")
+    for i in blair_bliss: print("{:.2}, ".format(i), end="")
+    print("]")
     print("Współczynniki Haralicka: [ ", end="")
     for i in haralick: print("{:.2}, ".format(i), end="")
     print("]")
@@ -82,36 +83,11 @@ def calc(image, real_num, real_value):
     print("### -------------------------------------------------- ###")
     print()
 
-    cv2.imshow("Output", image)
-    cv2.waitKey(0)
+    # cv2.imshow("Output", image)
+    # cv2.waitKey(0)
 
 
 def check_alg(real_value, value, real_num, num):
     check = float((value / real_value) + (num / real_num))
     if check > 2: check = 2 - (math.fabs(2 - check))
     return (check * 100)/200
-
-
-def compute_bb(points):
-    s = len(points)
-    my, mx = cog2(pts)
-    r = 0
-    for point in points:
-        r = r + distance.euclidean(point, (my, mx))**2
-    return s/(math.sqrt(2*math.pi*r))
-
-
-def compute_f(points):
-    px = [x for (y, x) in points]
-    py = [y for (y, x) in points]
-
-    fx = max(px) - min(px)
-    fy = max(py) - min(py)
-
-    return float(fy)/float(fx)
-
-
-def compute_h(dis, length_):
-    sum1 = dis
-    sum2 = math.pow(dis, 2)
-    return math.sqrt((math.pow(sum1, 2)) / (length_ * sum2 - 1))
