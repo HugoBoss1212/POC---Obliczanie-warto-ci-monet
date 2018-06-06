@@ -12,6 +12,8 @@ def calc(image, real_num, real_value):
     num = 0
     value = 0
     color_test = np.copy(image)
+    monets_field = 0
+    center_off_mass = []
 
     img = cv2.pyrMeanShiftFiltering(image, 21, 53)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -35,10 +37,12 @@ def calc(image, real_num, real_value):
 
         if math.sqrt(math.pow(int(x) - int(a), 2) + math.pow(int(y) - int(b), 2)) < int(r):
             continue
+        center_off_mass.append((int(y), int(x)))
         (a, b, radius) = (x, y, r)
 
         cv2.circle(image, (int(x), int(y)), int(r), (0, 255, 0), 2)
         pole = int(math.pi*r*r)
+        monets_field += pole
         num = label
         x_min = int(x - 15)
         x_max = int(x + 15)
@@ -47,11 +51,24 @@ def calc(image, real_num, real_value):
 
         value += reference.check_value(pole, color_test[y_min:y_max, x_min:x_max])
 
+    print("Środki ciężkości: " + str(center_off_mass))
+    print("Dokładność algorytmu: {:.2%}".format(check_alg(real_value, value/100, real_num, num)))
+    print("Pole zajmowane przez obiekty: {:.2%}".format((monets_field*100)/(image.shape[0]*image.shape[1])/100))
+    print()
     if num == real_num: print("Wykryto wszystkie elementy!")
     else: print("Pominieto " + str(real_num - num) + " elementy!")
     if value/100 == real_value: print("Pomyślnie odczytano wartość monet!")
     else: print("Wykryto złą wartość! pomyłka to: " + str(real_value - value/100))
     print("Kwota na zdjęciu: " + str(value/100) + "zł")
+    print("### -------------------------------------------------- ###")
+    print()
 
-    cv2.imshow("Output", image)
-    cv2.waitKey(0)
+    # cv2.imshow("Output", image)
+    # cv2.waitKey(0)
+
+
+def check_alg(real_value, value, real_num, num):
+    check = float((value / real_value) + (num / real_num))
+    if check > 2: check = 2 - (math.fabs(2 - check))
+    return (check * 100)/200
+
