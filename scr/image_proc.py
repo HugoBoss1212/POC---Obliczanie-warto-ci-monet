@@ -6,7 +6,7 @@ from scipy import ndimage
 import numpy as np
 import math
 import reference
-from computing import compute_h, compute_bb, compute_f
+from computing import compute_h, compute_bb, compute_f, labeling
 
 
 def calc(image, real_num, real_value):
@@ -26,8 +26,8 @@ def calc(image, real_num, real_value):
 
     d = ndimage.distance_transform_edt(thresh)
     local_max = peak_local_max(d, indices=False, min_distance=15, labels=thresh)
-    markers = ndimage.label(local_max, structure=np.ones((3, 3)))[0]
-    labels = watershed(-d, markers, mask=thresh)
+    markers = labeling(local_max)
+    labels = watershed(-d, markers, mask=thresh) ## napisać własne
     (a, b, radius) = (0, 0, 0)
     for label in np.unique(labels):
         if label == 0: continue
@@ -72,11 +72,11 @@ def calc(image, real_num, real_value):
     print("Współczynniki Haralicka: [ ", end="")
     for i in haralick: print("{:.2}, ".format(i), end="")
     print("]")
-    print("Dokładność algorytmu: {:.2%}".format(check_alg(real_value, value/100, real_num, num)))
+    print("Dokładność algorytmu: {:.2%}".format(check_alg(real_value, value/100, real_num, num - 2)))
     print("Pole zajmowane przez obiekty: {:.2%}".format((monets_field*100)/(image.shape[0]*image.shape[1])/100))
     print()
-    if num == real_num: print("Wykryto wszystkie elementy!")
-    else: print("Pominieto " + str(real_num - num) + " elementy!")
+    if num - 2 == real_num: print("Wykryto wszystkie elementy!")
+    else: print("Pominieto " + str(real_num - num + 2) + " elementy!")
     if value/100 == real_value: print("Pomyślnie odczytano wartość monet!")
     else: print("Wykryto złą wartość! pomyłka to: " + str(real_value - value/100))
     print("Kwota na zdjęciu: " + str(value/100) + "zł")
